@@ -1,6 +1,106 @@
+/* following widths:
+- Mobile: 375px
+- Desktop: 1440px 
+Font size: 16px  
+ */
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font: 100% Helvetica, sans-serif;
-  background-color: green;
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; /* Full screen height */
+}
+
+.top_half,
+.bottom_half {
+  display: flex;
+  color: white;
+}
+
+.top_half {
+  background: url("./assets/image-hero-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px;
+}
+
+.bottom_half {
+  background-color: whitesmoke;
+  /*   min-height: 100vh; */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.top_nav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px;
+}
+
+.logo {
+  width: 150px;
+  height: 100%;
+  background: url("./assets/logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.menu {
+  width: 30px;
+  min-height: 30px;
+  background: url("./assets/icon-hamburger.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.first {
+  border: 3px solid black;
+  width: 100%;
+}
+
+.second {
+  border: 3px solid red;
+  width: 100%;
+}
+
+.third {
+  border: 3px solid yellowgreen;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .first {
+    border: 3px solid cornflowerblue;
+    width: 100%;
+  }
+  .top_half {
+    background: url("./assets/image-hero-desktop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .first {
+    border: 3px solid purple;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
