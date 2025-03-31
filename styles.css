@@ -15,6 +15,8 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  font-size: 12px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   /* min-height: 100vh; /* Full screen height */
@@ -35,11 +37,9 @@ body {
 
 .bottom_half {
   background-color: whitesmoke;
-  /*   min-height: 100vh; */
-  padding: 40px;
+  padding: 23px 23px 0;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
 }
 
 .top_nav {
@@ -70,25 +70,298 @@ body {
   background-size: contain;
 }
 
+.groups {
+  position: relative;
+  top: -80px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .first {
-  border: 3px solid black;
-  width: 100%;
+  position: relative;
 }
 
-.second {
-  border: 3px solid red;
+.box {
+  border-radius: 10px;
   width: 100%;
+  padding: 25px;
+  background: white;
 }
 
-.third {
-  border: 3px solid yellowgreen;
+.main_logo {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background: url("./assets/logo-mastercraft.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading_title {
+  color: hsl(0, 0%, 0%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.mobile_break {
+  display: block;
+}
+
+.text_title {
+  color: hsl(0, 0%, 48%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.box_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.stats_box {
+  width: 50%;
+  border-bottom: 1px solid hsl(0, 0%, 48%);
+}
+
+.avoid {
+  border-bottom: none;
+}
+
+.number_stats {
+  color: hsl(0, 0%, 0%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.text_stats {
+  color: hsl(0, 0%, 48%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.bar_container {
   width: 100%;
+  background-color: #ddd;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.bar {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  width: 80%;
+  background-color: hsl(176, 50%, 47%);
+  border-radius: 15px;
+}
+
+.back_button {
+  background: hsl(176, 50%, 47%);
+  color: white;
+  border: none;
+  width: 225px;
+  height: 60px;
+  border-radius: 30px;
+  transition: 0.3s;
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  text-align: center;
+}
+
+.back_button:hover,
+.reward_button:hover {
+  cursor: pointer;
+  background: hsl(176, 72%, 28%);
+}
+
+.bookmark_button {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: none;
+  background: url("./assets/icon-bookmark.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* third */
+.about {
+  color: hsl(0, 0%, 0%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.about_text {
+  color: hsl(0, 0%, 48%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: justify;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+
+.stands {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sub_box {
+  border: 1px solid hsl(0, 0%, 48%);
+  min-height: 100px;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stand_tittle {
+  color: hsl(0, 0%, 0%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.stand_price {
+  color: hsl(176, 50%, 47%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.stand_text {
+  color: hsl(0, 0%, 48%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: justify;
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+
+.stock {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.amount {
+  color: hsl(0, 0%, 0%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 28px;
+  text-align: left;
+}
+
+.left {
+  color: hsl(0, 0%, 48%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: left;
+}
+
+.reward_button {
+  background: hsl(176, 50%, 47%);
+  color: white;
+  border: none;
+  width: 180px;
+  height: 45px;
+  border-radius: 30px;
+  transition: 0.3s;
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
+  .mobile_break {
+    display: none;
+  }
+  .bottom_half {
+    padding: 80px 80px 0;
+  }
+  .groups {
+    top: -120px;
+  }
   .first {
-    border: 3px solid cornflowerblue;
     width: 100%;
+  }
+  .box_container {
+    flex-direction: row;
+  }
+  .stats_box {
+    border-right: 1px solid hsl(0, 0%, 48%);
+    border-bottom: none;
+    margin-bottom: 25px;
+  }
+  .avoid {
+    border-right: none;
   }
   .top_half {
     background: url("./assets/image-hero-desktop.jpg");
@@ -98,7 +371,6 @@ body {
 }
 @media screen and (min-width: 1200px) {
   .first {
-    border: 3px solid purple;
     width: 100%;
   }
 }
