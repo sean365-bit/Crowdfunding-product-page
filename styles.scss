@@ -224,16 +224,37 @@ body {
   background: $dark-cyan;
 }
 
+.bookmark {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.bookmark:hover {
+  cursor: pointer;
+}
 .bookmark_button {
   height: 60px;
   width: 60px;
+
   border-radius: 50%;
   border: none;
-
-  background: url("./assets/icon-bookmark.svg");
-  background-position: center;
-  background-size: cover;
+  position: absolute;
 }
+
+/* toggle class */
+.circle {
+  fill: $moderate-cyan;
+  transition: 0.3s;
+}
+.path {
+  fill: white;
+  transition: 0.3s;
+}
+.bookmark_text {
+  color: $moderate-cyan;
+  transition: 0.3s;
+}
+/* toggle class */
 
 /* third */
 .about {
@@ -454,6 +475,24 @@ body {
   }
   .sub_box {
     padding: 30px;
+  }
+
+  .bookmark_section {
+    height: 50px;
+    width: 180px;
+
+    border-radius: 50px;
+    background: #f4f4f4;
+
+    display: flex;
+    align-items: center;
+
+    color: $dark-gray;
+
+    p {
+      padding-left: 70px;
+      @include fontTheme(700, 16px, center);
+    }
   }
 }
 
