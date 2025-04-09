@@ -13,6 +13,8 @@ const menuModal = document.getElementById("back_this_project");
 const backButton = document.getElementById("back_button");
 const closeMenuModal = document.getElementById("close_menu");
 
+const radios = document.querySelectorAll('input[type="radio"][name="Pledge"]');
+
 menuButton.addEventListener("click", openMenu);
 closeModal.addEventListener("click", closeMenu);
 bookMark.addEventListener("click", bookMarkClicked);
@@ -52,3 +54,25 @@ function bookMarkClicked() {
   path.classList.toggle("path");
   bookMarkText.classList.toggle("bookmark_text");
 }
+
+radios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    document.querySelectorAll(".sub_box_two").forEach((box) => {
+      box.classList.remove("selected");
+    });
+
+    document.querySelectorAll(".enter_pledge").forEach((info) => {
+      info.classList.remove("active_show");
+    });
+
+    if (radio.checked) {
+      const box = radio.closest(".sub_box_two");
+      box.classList.add("selected");
+
+      const extraInfo = box.querySelector(".enter_pledge");
+      if (extraInfo) {
+        extraInfo.classList.add("active_show");
+      }
+    }
+  });
+});

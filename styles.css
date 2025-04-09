@@ -87,7 +87,8 @@ body {
 }
 
 .menuButton:hover,
-#close:hover {
+#close:hover,
+.select {
   cursor: pointer;
 }
 
@@ -231,7 +232,8 @@ body {
 }
 
 #back_button:hover,
-.reward_button:hover {
+.reward_button:hover,
+.continue_button:hover {
   cursor: pointer;
   background: hsl(176, 72%, 28%);
 }
@@ -242,7 +244,8 @@ body {
   position: relative;
 }
 
-.bookmark:hover {
+.bookmark:hover,
+.pledge_input:hover {
   cursor: pointer;
 }
 
@@ -308,6 +311,109 @@ body {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+}
+
+/* select Button */
+.check_section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Radio Button */
+input[type=radio] {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.custom_radio {
+  appearance: none;
+  -webkit-appearance: none; /* Safari support */
+  border: 0.2rem solid #fff;
+  background-color: #e8e8e8;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 10px;
+}
+
+.custom_radio:focus-visible {
+  outline-offset: 0;
+}
+
+.custom_radio:checked {
+  box-shadow: 0 0 0 1px hsl(176, 72%, 28%);
+  background-color: hsl(176, 50%, 47%);
+  border-width: 0.3rem;
+}
+
+/* */
+.sub_box_two {
+  border: 1px solid hsl(0, 0%, 48%);
+  min-height: 100px;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sub_box_two.selected {
+  box-shadow: 0 0 0 2px hsl(176, 50%, 47%);
+}
+
+.enter_pledge {
+  border-top: 1px solid hsl(0, 0%, 48%);
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* */
+.enter_pledge.active_show {
+  display: flex;
+}
+
+.message {
+  margin-top: 15px;
+  color: hsl(0, 0%, 48%);
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: center;
+}
+
+.buttons_continue {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 25px;
+}
+
+.pledge_input, .continue_button {
+  width: 125px;
+  height: 45px;
+  border-radius: 30px;
+  transition: 0.3s;
+  font-family: "Commissioner", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  text-align: center;
+}
+
+.continue_button {
+  background: hsl(176, 50%, 47%);
+  color: white;
+  border: none;
+}
+
+.pledge_input {
+  background: white;
+  color: hsl(0, 0%, 0%);
+  border: 1px solid hsl(176, 72%, 28%);
 }
 
 .out_of_stock {
@@ -383,10 +489,10 @@ body {
 
 .reward_button {
   background: hsl(176, 50%, 47%);
-  color: white;
-  border: none;
   width: 180px;
   height: 45px;
+  color: white;
+  border: none;
   border-radius: 30px;
   transition: 0.3s;
   font-family: "Commissioner", sans-serif;
@@ -640,8 +746,9 @@ body {
   }
   .info_price {
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-bottom: 5px;
+    gap: 30px;
   }
   .content {
     position: relative;
@@ -659,6 +766,11 @@ body {
     flex-direction: column;
     width: 70%;
     gap: 15px;
+  }
+  .enter_pledge {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 @media screen and (min-width: 1200px) {

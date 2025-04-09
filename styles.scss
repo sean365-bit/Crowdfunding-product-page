@@ -138,7 +138,8 @@ body {
 }
 
 .menuButton:hover,
-#close:hover {
+#close:hover,
+.select {
   cursor: pointer;
 }
 /* on resize */
@@ -258,7 +259,8 @@ body {
   @include fontTheme($weight: 700, $size: 16px, $alignment: center);
 }
 #back_button:hover,
-.reward_button:hover {
+.reward_button:hover,
+.continue_button:hover {
   cursor: pointer;
   background: $dark-cyan;
 }
@@ -268,7 +270,8 @@ body {
   align-items: center;
   position: relative;
 }
-.bookmark:hover {
+.bookmark:hover,
+.pledge_input:hover {
   cursor: pointer;
 }
 .bookmark_button {
@@ -324,6 +327,108 @@ body {
   flex-direction: column;
 }
 
+/* select Button */
+.check_section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Radio Button */
+input[type="radio"] {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.custom_radio {
+  appearance: none;
+  -webkit-appearance: none; /* Safari support */
+  border: 0.2rem solid #fff;
+  background-color: #e8e8e8;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  margin-left: 10px;
+}
+.custom_radio:focus-visible {
+  outline-offset: 0;
+}
+
+.custom_radio:checked {
+  box-shadow: 0 0 0 1px $dark-cyan;
+  background-color: $moderate-cyan;
+  border-width: 0.3rem;
+}
+
+/* */
+.sub_box_two {
+  border: 1px solid $dark-gray;
+  min-height: 100px;
+  padding: 15px;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sub_box_two.selected {
+  box-shadow: 0 0 0 2px $moderate-cyan;
+}
+
+.enter_pledge {
+  border-top: 1px solid $dark-gray;
+
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* */
+.enter_pledge.active_show {
+  display: flex;
+}
+
+.message {
+  margin-top: 15px;
+
+  color: $dark-gray;
+  @include fontTheme($weight: 500, $size: 16px, $alignment: center);
+}
+
+.buttons_continue {
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: space-evenly;
+  gap: 25px;
+}
+
+// Define a placeholder for common button styles
+%button {
+  width: 125px;
+  height: 45px;
+  border-radius: 30px;
+  transition: 0.3s;
+  @include fontTheme($weight: 500, $size: 16px, $alignment: center);
+}
+
+// Continue Button styles
+.continue_button {
+  @extend %button;
+  background: $moderate-cyan;
+  color: white;
+  border: none;
+}
+
+// Pledge Input styles
+.pledge_input {
+  @extend %button;
+  background: white;
+  color: $black;
+  border: 1px solid $dark-cyan;
+}
+
 .out_of_stock {
   opacity: 0.5;
 }
@@ -373,11 +478,12 @@ body {
 
 .reward_button {
   background: $moderate-cyan;
-  color: white;
-  border: none;
 
   width: 180px;
   height: 45px;
+
+  color: white;
+  border: none;
 
   border-radius: 30px;
   transition: 0.3s;
@@ -574,12 +680,20 @@ body {
 
   .info_price {
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+
     margin-bottom: 5px;
+    gap: 30px;
   }
 
   .content {
     @include modal_content($gap: 15px, $width: 70%);
+  }
+
+  .enter_pledge {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
