@@ -15,12 +15,36 @@ const closeMenuModal = document.getElementById("close_menu");
 
 const radios = document.querySelectorAll('input[type="radio"][name="Pledge"]');
 
+const firstItem = document.getElementById("firstItem");
+const secondItem = document.getElementById("secondItem");
+const thirdItem = document.getElementById("thirdItem");
+
+const thanksModalMessage = document.getElementById("thanksModal");
+const closeThanksModal = document.querySelector(".got_it_button");
+
 menuButton.addEventListener("click", openMenu);
 closeModal.addEventListener("click", closeMenu);
 bookMark.addEventListener("click", bookMarkClicked);
 
 backButton.addEventListener("click", openModalOptions);
 closeMenuModal.addEventListener("click", closeModalOptions);
+
+firstItem.addEventListener("click", thanksModal);
+secondItem.addEventListener("click", thanksModal);
+thirdItem.addEventListener("click", thanksModal);
+
+closeThanksModal.addEventListener("click", closeMessage);
+
+function thanksModal() {
+  // alert("Thanks!!!");
+  thanksModalMessage.classList.add("active_Modal_message");
+  menuModal.classList.remove("active_Modal");
+}
+
+function closeMessage() {
+  // alert("Thanks!!!");
+  thanksModalMessage.classList.remove("active_Modal_message");
+}
 
 function closeModalOptions() {
   menuModal.classList.remove("active_Modal");

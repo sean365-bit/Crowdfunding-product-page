@@ -26,12 +26,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./assets/Crowdfunding.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Check out my code solution](https://github.com/sean365-bit/Crowdfunding-product-page)
+- Live Site URL: [Check out the live site](https://sean365-bit.github.io/Crowdfunding-product-page/)
 
 ## My process
 
