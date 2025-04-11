@@ -15,9 +15,7 @@ const closeMenuModal = document.getElementById("close_menu");
 
 const radios = document.querySelectorAll('input[type="radio"][name="Pledge"]');
 
-const firstItem = document.getElementById("firstItem");
-const secondItem = document.getElementById("secondItem");
-const thirdItem = document.getElementById("thirdItem");
+const itemIds = ["firstItem", "secondItem", "thirdItem"];
 
 const thanksModalMessage = document.getElementById("thanksModal");
 const closeThanksModal = document.querySelector(".got_it_button");
@@ -29,29 +27,34 @@ bookMark.addEventListener("click", bookMarkClicked);
 backButton.addEventListener("click", openModalOptions);
 closeMenuModal.addEventListener("click", closeModalOptions);
 
-firstItem.addEventListener("click", thanksModal);
-secondItem.addEventListener("click", thanksModal);
-thirdItem.addEventListener("click", thanksModal);
-
 closeThanksModal.addEventListener("click", closeMessage);
 
+itemIds.forEach((id) => {
+  const item = document.getElementById(id);
+  if (item) {
+    item.addEventListener("click", thanksModal);
+  }
+});
+
 function thanksModal() {
-  // alert("Thanks!!!");
   thanksModalMessage.classList.add("active_Modal_message");
   menuModal.classList.remove("active_Modal");
+
+  resetRadioButtons();
 }
 
 function closeMessage() {
-  // alert("Thanks!!!");
   thanksModalMessage.classList.remove("active_Modal_message");
-}
-
-function closeModalOptions() {
-  menuModal.classList.remove("active_Modal");
 }
 
 function openModalOptions() {
   menuModal.classList.add("active_Modal");
+}
+
+function closeModalOptions() {
+  menuModal.classList.remove("active_Modal");
+
+  resetRadioButtons();
 }
 
 function openMenu() {
@@ -77,6 +80,13 @@ function bookMarkClicked() {
   bookMarkButton.classList.toggle("circle");
   path.classList.toggle("path");
   bookMarkText.classList.toggle("bookmark_text");
+
+  // Toggle the text content
+  if (bookMarkText.textContent === "Bookmark") {
+    bookMarkText.textContent = "Bookmarked";
+  } else {
+    bookMarkText.textContent = "Bookmark";
+  }
 }
 
 radios.forEach((radio) => {
@@ -100,3 +110,17 @@ radios.forEach((radio) => {
     }
   });
 });
+
+function resetRadioButtons() {
+  radios.forEach((radio) => {
+    radio.checked = false;
+  });
+
+  document.querySelectorAll(".sub_box_two").forEach((box) => {
+    box.classList.remove("selected");
+  });
+
+  document.querySelectorAll(".enter_pledge").forEach((info) => {
+    info.classList.remove("active_show");
+  });
+}
