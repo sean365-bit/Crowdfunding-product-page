@@ -12,7 +12,6 @@ $light-gray: #f4f4f4;
   padding: 0;
   box-sizing: border-box;
 }
-
 @mixin fontTheme($weight: 400, $size: 12px, $alignment: center) {
   font-family: "Commissioner", sans-serif;
   font-optical-sizing: auto;
@@ -21,15 +20,13 @@ $light-gray: #f4f4f4;
   font-size: $size;
   text-align: $alignment;
 }
-
 @mixin backgrounds {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
-
 @mixin modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1;
   padding-top: 120px;
@@ -41,7 +38,6 @@ $light-gray: #f4f4f4;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
-
 @mixin modal_content($gap: 15px, $width: 85%) {
   position: relative;
   background-color: white;
@@ -49,16 +45,31 @@ $light-gray: #f4f4f4;
   padding: 30px;
   border: none;
   border-radius: 10px;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
-
   display: flex;
   flex-direction: column;
+  width: $width;
+  gap: $gap;
+}
 
+@mixin modal_content_thanks($gap: 15px, $width: 85%) {
+  position: relative;
+  background-color: white;
+  margin: auto;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetopThanks;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetopThanks;
+  animation-duration: 0.4s;
+  display: flex;
+  flex-direction: column;
   width: $width;
   gap: $gap;
 }
@@ -67,81 +78,55 @@ body {
   @include fontTheme;
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; /* Full screen height */
 }
-
 #thanksModal {
   line-height: 24px;
-  /* */
-
-  display: none; /* Hidden by default   */
-  position: fixed;
-  z-index: 1;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  @include modal;
 }
-
-/*  */
 #thanksModal.active_Modal_message {
   display: block;
 }
-
 .thanks {
-  @include modal_content($gap: 15px, $width: 85%);
+  @include modal_content_thanks($gap: 15px, $width: 85%);
   @include fontTheme;
-
   border-radius: 15px;
   color: $black;
-
-  display: flex; /* none  */
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 20px;
 
   h3 {
     @include fontTheme(700, 24px, center);
   }
-
   p {
     color: $dark-gray;
     @include fontTheme(400, 16px, center);
     line-height: 26px;
   }
 }
-
 .checkmark_done {
   background: url("./assets/icon-check.svg");
   background-repeat: no-repeat;
   background-size: cover;
-
   height: 80px;
   width: 80px;
 }
-
 .got_it_button {
   @extend %main_button;
   width: 115px;
   height: 45px;
 }
-
 .top_half,
 .bottom_half {
   display: flex;
   color: white;
 }
-
 .top_half {
   background: url("./assets/image-hero-mobile.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-
   min-height: 300px;
 }
 .bottom_half {
@@ -150,11 +135,9 @@ body {
   display: flex;
   justify-content: center;
 }
-
 .top_nav {
   width: 100%;
   height: 80px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -165,11 +148,9 @@ body {
   margin-left: 40px;
   width: 150px;
   height: 100%;
-
   background: url("./assets/logo.svg");
   @include backgrounds;
 }
-
 .header_options {
   display: none;
   margin-right: 40px;
@@ -178,21 +159,21 @@ body {
     cursor: pointer;
   }
 }
-
 .menuButton {
   margin-right: 40px;
   width: 30px;
   min-height: 30px;
-
   background: url("./assets/icon-hamburger.svg");
   @include backgrounds;
   display: block;
+
+  /* border: 3px solid red; */ 
 }
+
 /* on resize */
 .menuButton.close {
   display: none;
 }
-
 .menuButton:hover,
 #close:hover,
 .select {
@@ -203,50 +184,41 @@ body {
 .groups {
   position: relative;
   top: -80px;
-
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
-
 .first {
   position: relative;
 }
-
 .box {
   border-radius: 10px;
   width: 100%;
   padding: 25px;
   background: white;
 }
-
 .main_logo {
   height: 75px;
   width: 75px;
   border-radius: 50%;
-
   background: url("./assets/logo-mastercraft.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .heading_title {
   color: $black;
   @include fontTheme(700, 24px, center);
   margin-bottom: 15px;
   margin-top: 30px;
 }
-
 .mobile_break {
   display: block;
 }
-
 .text_title {
   color: $dark-gray;
   @include fontTheme(500, 16px, center);
@@ -258,23 +230,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-/* buttons section */
 .buttons {
   display: flex;
   justify-content: space-between;
   gap: 25px;
 }
-
 #back_button {
   @include fontTheme($weight: 700, $size: 16px, $alignment: center);
   background: $moderate-cyan;
   color: white;
   border: none;
-
   width: 225px;
   height: 60px;
-
   border-radius: 30px;
   transition: 0.3s;
 }
@@ -286,11 +253,9 @@ body {
 .bookmark_button {
   height: 60px;
   width: 60px;
-
   border-radius: 50%;
   border: none;
 }
-
 /* toggle class */
 .circle {
   fill: $moderate-cyan;
@@ -305,13 +270,11 @@ body {
   transition: 0.3s;
 }
 /* toggle class */
-
 .bookmark_section {
   p {
     display: none;
   }
 }
-
 .stats_box {
   width: 50%;
   border-bottom: 1px solid $dark-gray;
@@ -319,7 +282,6 @@ body {
 .avoid {
   border-bottom: none;
 }
-
 .number_stats {
   color: $black;
   @include fontTheme($weight: 700, $size: 32px, $alignment: center);
@@ -331,20 +293,17 @@ body {
   @include fontTheme($weight: 400, $size: 14px, $alignment: center);
   margin-bottom: 25px;
 }
-
 .bar_container {
   width: 100%;
   background-color: #ddd;
   border-radius: 15px;
   margin-bottom: 25px;
 }
-
 .bar {
   text-align: right;
   padding-top: 10px;
   padding-bottom: 10px;
   color: white;
-
   width: 80%;
   background-color: $moderate-cyan;
   border-radius: 15px;
@@ -357,12 +316,6 @@ body {
   cursor: pointer;
   background: $dark-cyan;
 }
-
-/* 
-#bookmarkText {
-  display: none;
-}
-*/
 
 .bookmark:hover,
 .pledge_input:hover {
@@ -391,27 +344,23 @@ body {
 .sub_box {
   border: 1px solid $dark-gray;
   min-height: 100px;
-  padding: 15px; /* 20 */
+  padding: 15px;
   border-radius: 15px;
-
   display: flex;
   flex-direction: column;
 }
-
 /* select Button */
 .check_section {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
 }
-
 /* Radio Button */
 input[type="radio"] {
   height: 1.5rem;
   width: 1.5rem;
   margin-right: 0.5rem;
 }
-
 .custom_radio {
   appearance: none;
   -webkit-appearance: none; /* Safari support */
@@ -419,7 +368,6 @@ input[type="radio"] {
   background-color: #e8e8e8;
   border-radius: 50%;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
   margin-left: 10px;
 }
 .custom_radio:focus-visible {
@@ -432,13 +380,11 @@ input[type="radio"] {
   border-width: 0.3rem;
 }
 
-/* */
 .sub_box_two {
   border: 1px solid $dark-gray;
   min-height: 100px;
   padding: 15px;
   border-radius: 15px;
-
   display: flex;
   flex-direction: column;
 }
@@ -449,33 +395,28 @@ input[type="radio"] {
 
 .enter_pledge {
   border-top: 1px solid $dark-gray;
-
   display: none;
   flex-direction: column;
   gap: 20px;
 }
 
-/* */
 .enter_pledge.active_show {
   display: flex;
 }
 
 .message {
   margin-top: 15px;
-
   color: $dark-gray;
   @include fontTheme($weight: 500, $size: 16px, $alignment: center);
 }
 
 .buttons_continue {
   margin-top: 15px;
-
   display: flex;
   justify-content: space-evenly;
   gap: 25px;
 }
 
-// Define a placeholder for common button styles
 %button {
   width: 125px;
   height: 45px;
@@ -484,7 +425,6 @@ input[type="radio"] {
   @include fontTheme($weight: 500, $size: 16px, $alignment: center);
 }
 
-// Continue Button styles
 .continue_button {
   @extend %button;
   background: $moderate-cyan;
@@ -492,7 +432,6 @@ input[type="radio"] {
   border: none;
 }
 
-// Pledge Input styles
 .pledge_input {
   @extend %button;
   background: white;
@@ -508,11 +447,13 @@ input[type="radio"] {
   color: $black;
   @include fontTheme($weight: 700, $size: 16px, $alignment: left);
   margin-bottom: 5px;
+  transition: 0.3s;
 }
-
+.stand_tittle:hover {
+  color: $dark-cyan;
+}
 .info_price {
   margin-bottom: 20px;
-
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -521,7 +462,6 @@ input[type="radio"] {
 .stand_price {
   color: $moderate-cyan;
   @include fontTheme($weight: 500, $size: 16px, $alignment: left);
-  /* margin-bottom: 20px;  */
 }
 
 .stand_text {
@@ -563,13 +503,10 @@ input[type="radio"] {
 
 .out_button {
   background: $dark-gray;
-
   color: white;
   border: none;
-
   width: 180px;
   height: 45px;
-
   border-radius: 30px;
   transition: 0.3s;
   @include fontTheme($weight: 500, $size: 16px, $alignment: center);
@@ -577,19 +514,7 @@ input[type="radio"] {
 
 #back_this_project {
   line-height: 24px;
-  /* */
-
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  @include modal;
 
   h3 {
     color: $black;
@@ -610,25 +535,21 @@ input[type="radio"] {
   #close_menu {
     height: 30px;
     width: 30px;
-
     background: url("./assets/icon-close-modal.svg");
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: cover; */
   }
   #close_menu:hover {
     cursor: pointer;
   }
 }
-
 #back_this_project.active_Modal {
   display: block;
 }
-
 .content {
   @include modal_content;
+  top: -90px;
 }
-
 /* Modal menu */
 #myModal {
   @include modal;
@@ -638,7 +559,7 @@ input[type="radio"] {
 }
 /* Modal Content */
 .modal_content {
-  @include modal_content;
+  @include modal_content_thanks;
 }
 .modal_box {
   padding: 15px;
@@ -667,11 +588,32 @@ input[type="radio"] {
     opacity: 0;
   }
   to {
-    top: 0;
+    top: -90px;
     opacity: 1;
   }
 }
 @keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: -90px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animatetopThanks {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatetopThanks {
   from {
     top: -300px;
     opacity: 0;
@@ -738,13 +680,10 @@ input[type="radio"] {
   .bookmark_section {
     height: 50px;
     width: 180px;
-
     border-radius: 50px;
     background: $light-gray;
-
     display: flex;
     align-items: center;
-
     color: $dark-gray;
 
     p {
@@ -754,16 +693,9 @@ input[type="radio"] {
     }
   }
 
-  /*
-  #bookmarkText {
-    display: block;
-  }
-*/
-
   .info_price {
     flex-direction: row;
     justify-content: space-between;
-
     margin-bottom: 5px;
     gap: 30px;
   }
@@ -779,7 +711,7 @@ input[type="radio"] {
   }
 
   .thanks {
-    @include modal_content($gap: 15px, $width: 45%);
+    @include modal_content_thanks($gap: 15px, $width: 45%);
   }
 }
 

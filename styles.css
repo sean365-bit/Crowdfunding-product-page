@@ -14,16 +14,14 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* min-height: 100vh; /* Full screen height */
 }
 
 #thanksModal {
   line-height: 24px;
-  /* */
-  display: none; /* Hidden by default   */
+  display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 60px;
+  padding-top: 120px;
   left: 0;
   top: 0;
   width: 100%;
@@ -33,7 +31,6 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/*  */
 #thanksModal.active_Modal_message {
   display: block;
 }
@@ -46,9 +43,9 @@ body {
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-animation-name: animatetop;
+  -webkit-animation-name: animatetopThanks;
   -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
+  animation-name: animatetopThanks;
   animation-duration: 0.4s;
   display: flex;
   flex-direction: column;
@@ -62,10 +59,10 @@ body {
   text-align: center;
   border-radius: 15px;
   color: hsl(0, 0%, 0%);
-  display: flex; /* none  */
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 20px;
 }
 .thanks h3 {
@@ -157,6 +154,7 @@ body {
   background-position: center;
   background-size: contain;
   display: block;
+  /* border: 3px solid red; */
 }
 
 /* on resize */
@@ -238,7 +236,6 @@ body {
   align-items: center;
 }
 
-/* buttons section */
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -352,11 +349,6 @@ body {
   background: hsl(176, 72%, 28%);
 }
 
-/* 
-#bookmarkText {
-  display: none;
-}
-*/
 .bookmark:hover,
 .pledge_input:hover {
   cursor: pointer;
@@ -395,7 +387,7 @@ body {
 .sub_box {
   border: 1px solid hsl(0, 0%, 48%);
   min-height: 100px;
-  padding: 15px; /* 20 */
+  padding: 15px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -404,8 +396,8 @@ body {
 /* select Button */
 .check_section {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
 }
 
 /* Radio Button */
@@ -435,7 +427,6 @@ input[type=radio] {
   border-width: 0.3rem;
 }
 
-/* */
 .sub_box_two {
   border: 1px solid hsl(0, 0%, 48%);
   min-height: 100px;
@@ -456,7 +447,6 @@ input[type=radio] {
   gap: 20px;
 }
 
-/* */
 .enter_pledge.active_show {
   display: flex;
 }
@@ -517,6 +507,11 @@ input[type=radio] {
   font-size: 16px;
   text-align: left;
   margin-bottom: 5px;
+  transition: 0.3s;
+}
+
+.stand_tittle:hover {
+  color: hsl(176, 72%, 28%);
 }
 
 .info_price {
@@ -534,7 +529,6 @@ input[type=radio] {
   font-style: normal;
   font-size: 16px;
   text-align: left;
-  /* margin-bottom: 20px;  */
 }
 
 .stand_text {
@@ -612,11 +606,10 @@ input[type=radio] {
 
 #back_this_project {
   line-height: 24px;
-  /* */
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 60px;
+  padding-top: 120px;
   left: 0;
   top: 0;
   width: 100%;
@@ -655,7 +648,6 @@ input[type=radio] {
   background: url("./assets/icon-close-modal.svg");
   background-repeat: no-repeat;
   background-position: center;
-  /* background-size: cover; */
 }
 #back_this_project #close_menu:hover {
   cursor: pointer;
@@ -681,11 +673,12 @@ input[type=radio] {
   flex-direction: column;
   width: 85%;
   gap: 15px;
+  top: -90px;
 }
 
 /* Modal menu */
 #myModal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1;
   padding-top: 120px;
@@ -711,9 +704,9 @@ input[type=radio] {
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-animation-name: animatetop;
+  -webkit-animation-name: animatetopThanks;
   -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
+  animation-name: animatetopThanks;
   animation-duration: 0.4s;
   display: flex;
   flex-direction: column;
@@ -756,11 +749,31 @@ input[type=radio] {
     opacity: 0;
   }
   to {
-    top: 0;
+    top: -90px;
     opacity: 1;
   }
 }
 @keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: -90px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animatetopThanks {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatetopThanks {
   from {
     top: -300px;
     opacity: 0;
@@ -839,11 +852,6 @@ input[type=radio] {
     font-size: 16px;
     text-align: center;
   }
-  /*
-    #bookmarkText {
-      display: block;
-    }
-  */
   .info_price {
     flex-direction: row;
     justify-content: space-between;
@@ -880,9 +888,9 @@ input[type=radio] {
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-animation-name: animatetop;
+    -webkit-animation-name: animatetopThanks;
     -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
+    animation-name: animatetopThanks;
     animation-duration: 0.4s;
     display: flex;
     flex-direction: column;
